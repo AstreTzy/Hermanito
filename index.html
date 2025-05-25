@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Estrella Especial</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(ellipse at center, #020311 0%, #000000 100%);
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .estrella {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.4;
+      animation: parpadeo 6s infinite ease-in-out;
+    }
+
+    @keyframes parpadeo {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.9; }
+    }
+
+    /* Estrella especial */
+    .estrella-especial {
+      width: 14px;
+      height: 14px;
+      background: #ffffdd;
+      border-radius: 50%;
+      box-shadow:
+        0 0 20px 10px rgba(255, 255, 180, 0.9),
+        0 0 50px 25px rgba(255, 255, 200, 0.4),
+        0 0 80px 40px rgba(255, 255, 220, 0.2);
+      animation: brillar 6s infinite ease-in-out;
+      z-index: 10;
+    }
+
+    @keyframes brillar {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.6); opacity: 1; }
+    }
+
+    .mensaje {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+      color: #ffffffcc;
+      font-size: 1.3em;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="mensaje">Tu luz nunca se apaga</div>
+
+  <script>
+    const totalEstrellas = 250;
+
+    // Estrellas normales
+    for (let i = 0; i < totalEstrellas; i++) {
+      const estrella = document.createElement('div');
+      estrella.className = 'estrella';
+      const size = Math.random() * 1.5 + 0.5;
+      estrella.style.width = `${size}px`;
+      estrella.style.height = `${size}px`;
+      estrella.style.top = `${Math.random() * 100}vh`;
+      estrella.style.left = `${Math.random() * 100}vw`;
+      estrella.style.animationDelay = `${Math.random() * 8}s`;
+      document.body.appendChild(estrella);
+    }
+
+    // Estrella especial
+    const especial = document.createElement('div');
+    especial.className = 'estrella estrella-especial';
+    especial.style.top = '35%';
+    especial.style.left = '50%';
+    especial.style.transform = 'translate(-50%, -50%)';
+    document.body.appendChild(especial);
+  </script>
+</body>
+</html>
