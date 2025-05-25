@@ -27,7 +27,6 @@
       50% { opacity: 0.9; }
     }
 
-    /* Estrella especial */
     .estrella-especial {
       width: 14px;
       height: 14px;
@@ -56,15 +55,41 @@
       letter-spacing: 1px;
       text-shadow: 0 0 8px #000;
     }
+
+    .boton-musica {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      background: #ffffff22;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+    }
+
+    .boton-musica:hover {
+      background: #ffffff44;
+    }
   </style>
 </head>
 <body>
   <div class="mensaje">Tu luz nunca se apaga</div>
+  
+  <button class="boton-musica" onclick="document.getElementById('musica').play()">Reproducir Música</button>
+
+  <!-- Audio personalizado -->
+  <audio id="musica" loop>
+    <source src="ssstik.io_@cwallerstedt_1748217081988 (1) (online-audio-converter.com) (1).mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
 
   <script>
     const totalEstrellas = 250;
 
-    // Estrellas normales
     for (let i = 0; i < totalEstrellas; i++) {
       const estrella = document.createElement('div');
       estrella.className = 'estrella';
@@ -77,7 +102,6 @@
       document.body.appendChild(estrella);
     }
 
-    // Estrella especial
     const especial = document.createElement('div');
     especial.className = 'estrella estrella-especial';
     especial.style.top = '35%';
@@ -86,4 +110,4 @@
     document.body.appendChild(especial);
   </script>
 </body>
-</html>
+</html> 
